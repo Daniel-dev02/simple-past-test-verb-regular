@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Juego interactivo para practicar el pasado simple de verbos regulares en inglés.">
+  <title>Past Simple Quest — Regular Verbs</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Past Simple Quest, inicio">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>Past Simple <span class="brand-light">Quest</span></span>
+      </a>
+      <div class="top-meta">
+        <span class="level-pill">ENGLISH · A1-A2</span>
+        <button id="soundToggle" class="icon-button" type="button" aria-pressed="false" aria-label="Activar o desactivar sonidos">♫ <span id="soundLabel">Sonido apagado</span></button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="sparkle">✦</span> APRENDE JUGANDO</p>
+          <h1>Yesterday is<br><span>your story.</span></h1>
+          <p class="hero-description">Practica el <strong>past simple</strong> con verbos regulares. Completa retos, gana puntos y descubre cuánto sabes.</p>
+          <div class="hero-stats" aria-label="Características del juego">
+            <div><strong>10</strong><span>retos por ronda</span></div>
+            <div><strong>+XP</strong><span>por cada acierto</span></div>
+            <div><strong>∞</strong><span>intentos</span></div>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="planet">✦</div>
+          <div class="floating-note note-one">+10 XP</div>
+          <div class="floating-note note-two">-ed</div>
+          <div class="mini-card"><span class="mini-label">YESTERDAY</span><strong>I play<span>ed</span></strong><span class="mini-check">✓ Correct!</span></div>
+        </div>
+      </section>
+
+      <section class="game-layout" aria-label="Zona de juego">
+        <aside class="progress-panel panel">
+          <div class="panel-heading"><span class="section-icon">◈</span><h2>Tu progreso</h2></div>
+          <div class="xp-row"><div><span class="muted">PUNTOS XP</span><strong id="xpValue">0</strong></div><span class="xp-icon">✦</span></div>
+          <div class="progress-track" aria-label="Progreso de la ronda">
+            <progress id="progressBar" value="0" max="10" aria-label="Progreso de la ronda"></progress>
+            <span id="progressFill" aria-hidden="true"></span>
+          </div>
+          <p class="progress-caption"><span id="progressText">Reto 1 de 10</span><span id="percentText">0%</span></p>
+          <div class="divider"></div>
+          <p class="muted small-label">RACHA ACTUAL</p>
+          <div class="streak-row"><span class="streak-fire">♨</span><strong id="streakValue">0</strong><span class="muted">respuestas seguidas</span></div>
+          <div class="tip-card"><span class="tip-icon">☼</span><div><strong>Tip rápido</strong><p>En los verbos regulares, normalmente añadimos <b>-ed</b>: work → worked.</p></div></div>
+          <button id="restartButton" class="text-button" type="button">↻ Reiniciar ronda</button>
+        </aside>
+
+        <section class="quiz-panel panel">
+          <div class="quiz-topline"><span class="question-tag">CHALLENGE <span id="questionNumber">01</span></span><span class="mode-tag">Completa la frase</span></div>
+          <div id="quizContent">
+            <div class="question-area">
+              <p class="muted small-label">ELIGE LA FORMA CORRECTA</p>
+              <h2 id="questionText">Yesterday, I ____ football with my friends.</h2>
+              <p class="translation" id="translationText">Ayer, jugué fútbol con mis amigos.</p>
+            </div>
+            <div id="answers" class="answers" role="group" aria-label="Opciones de respuesta"></div>
+            <div id="feedback" class="feedback" aria-live="polite" hidden></div>
+            <div class="quiz-actions">
+              <span class="keyboard-hint">TIP: también puedes usar las teclas 1-4</span>
+              <button id="nextButton" class="primary-button" type="button" disabled>Siguiente reto <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+          <div id="results" class="results" hidden aria-live="polite">
+            <div class="result-medal">✦</div>
+            <p class="eyebrow">RONDA COMPLETADA</p>
+            <h2 id="resultTitle">¡Buen trabajo!</h2>
+            <p id="resultMessage">Has terminado la ronda.</p>
+            <div class="result-stats">
+              <div><span>Respuestas correctas</span><strong id="correctResult">0/10</strong></div>
+              <div><span>XP ganados</span><strong id="xpResult">0</strong></div>
+              <div><span>Precisión</span><strong id="accuracyResult">0%</strong></div>
+            </div>
+            <button id="playAgainButton" class="primary-button" type="button">Jugar otra vez ↻</button>
+          </div>
+        </section>
+      </section>
+      <section class="rule-strip">
+        <div class="rule-icon">Aa</div><div><strong>La fórmula del past simple</strong><p>Sujeto + verbo terminado en <b>-ed</b> + complemento. Ejemplo: <i>She cleaned her room.</i></p></div>
+        <span class="rule-badge">REGULAR VERBS</span>
+      </section>
+    </main>
+    <footer><span>Past Simple Quest</span><span>Practice a little. Improve a lot. <span class="footer-star">✦</span></span></footer>
+  </div>
+</body>
+</html>
